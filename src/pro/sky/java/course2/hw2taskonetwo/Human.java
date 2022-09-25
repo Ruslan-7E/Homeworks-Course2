@@ -6,12 +6,31 @@ public class Human {
     private String town;
     private String job; // for task 2
 
-// task 2 version of constructor
+// task 3 version of constructor
     public Human(int yearOfBirth, String name, String town, String job) {
-        this.yearOfBirth = yearOfBirth;
-        this.name = name;
-        this.town = town;
-        this.job = job;
+        if (yearOfBirth >= 0) {
+            this.yearOfBirth = yearOfBirth;
+        } else {
+            this.yearOfBirth = Math.abs(yearOfBirth);
+        }
+
+        if (name == null) {
+            System.out.println("Информация не указана");
+        } else {
+            this.name = name;
+        }
+
+        if (town == null) {
+            System.out.println("Информация не указана");
+        } else {
+            this.town = town;
+        }
+
+        if (job == null) {
+            System.out.println("Информация не указана");
+        } else {
+            this.job = job;
+        }
     }
 
     public int getYearOfBirth() {

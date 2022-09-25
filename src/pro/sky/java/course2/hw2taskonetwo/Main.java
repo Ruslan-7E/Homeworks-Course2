@@ -3,10 +3,10 @@ package pro.sky.java.course2.hw2taskonetwo;
 public class Main {
     public static void main(String[] args) {
         // task 1
-        Human maxim = new Human(1987, "Maxim", "Minsk", "brand manager");
-        Human anna = new Human(1993, "Anna", "Moscow", "educational methodist");
-        Human kate = new Human(1994, "Kate", "Kaliningrad", "product manager");
-        Human artem = new Human(1995, "Artem", "Moscow", "chief business development officer");
+        Human maxim = new Human(-1987, "Maxim", "Minsk", "brand manager");
+        Human anna = new Human(1993, "Anna", "Moscow", null);
+        Human kate = new Human(1994, "Kate", null, "product manager");
+        Human artem = new Human(1995, null, "Moscow", "chief business development officer");
 
         printGreeting(maxim);
         printGreeting(anna);

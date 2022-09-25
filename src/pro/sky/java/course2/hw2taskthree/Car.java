@@ -1,12 +1,12 @@
 package pro.sky.java.course2.hw2taskthree;
 
 public class Car {
-    private String brand;
-    private String model;
-    private double engineVolume;
-    private String color;
-    private int yearOfAssembly;
-    private String countryOfAssembly;
+    private final String brand;
+    private final String model;
+    private final double engineVolume;
+    private final String color;
+    private final int yearOfAssembly;
+    private final String countryOfAssembly;
 
     public Car(String brand, String model, double engineVolume, String color, int yearOfAssembly, String countryOfAssembly) {
         this.brand = brand;

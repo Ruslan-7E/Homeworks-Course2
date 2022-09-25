@@ -9,7 +9,7 @@ public class CarService {
         Car bmw = new Car("BMW", "Z8", 3.0,
                 "black", 2021, "Germany");
         Car kia = new Car("Kia", "Sportage 4th Gen", 2.4,
-                "red", 2018, "South korea");
+                "red", 2018, "South Korea");
         Car hyundai = new Car("Hyundai", "Avante", 1.6,
                 "orange", 2016, "South Korea");
 
