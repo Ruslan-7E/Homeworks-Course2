@@ -7,20 +7,13 @@ public class Main {
         Human anna = new Human(1993, "Anna", "Moscow", null);
         Human kate = new Human(1994, "Kate", null, "product manager");
         Human artem = new Human(1995, null, "Moscow", "chief business development officer");
+        // hw3-task1
+        Human vladimir = new Human(2001, "Vladimir", "Kazan", null);
 
-        printGreeting(maxim);
-        printGreeting(anna);
-        printGreeting(kate);
-        printGreeting(artem);
-
-//        System.out.println("Привет! Меня зовут " + anna.getName() + ". " +
-//                "Я из города " + anna.getTown() + ". Я родился в " + anna.getYearOfBirth() + ". Будем знакомы!");
-//        System.out.println("Привет! Меня зовут " + maxim.getName() + ". " +
-//                "Я из города " + maxim.getTown() + ". Я родился в " + maxim.getYearOfBirth() + ". Будем знакомы!");
-//        System.out.println("Привет! Меня зовут " + kate.getName() + ". " +
-//                "Я из города " + kate.getTown() + ". Я родился в " + kate.getYearOfBirth() + ". Будем знакомы!");
-//        System.out.println("Привет! Меня зовут " + artem.getName() + ". " +
-//                "Я из города " + artem.getTown() + ". Я родился в " + artem.getYearOfBirth() + ". Будем знакомы!");
+//        printGreeting(maxim);
+//        printGreeting(anna);
+//        printGreeting(kate);
+//        printGreeting(artem);
 
         // task 2
         System.out.println("task 2");
@@ -28,6 +21,7 @@ public class Main {
         printNewGreeting(anna);
         printNewGreeting(kate);
         printNewGreeting(artem);
+        printNewGreeting(vladimir); // hw3 task 1
     }
 
     // task 1 method
@@ -39,9 +33,13 @@ public class Main {
 
     // task 2 method
     public static void printNewGreeting(Human human) {
-        System.out.println("Привет! Меня зовут " + human.getName() + ". " +
-                "Я из города " + human.getTown() + ". Я родился в "
-                + human.getYearOfBirth() + ". Я работаю на должности "
-                + human.getJob() + ". Будем знакомы!");
+        if (human.getJob() == null) {
+            System.out.println("Информация не указана.");
+        } else {
+            System.out.println("Привет! Меня зовут " + human.getName() + ". " +
+                    "Я из города " + human.getTown() + ". Я родился в "
+                    + human.getYearOfBirth() + ". Я работаю на должности "
+                    + human.getJob() + ". Будем знакомы!");
+        }
     }
 }

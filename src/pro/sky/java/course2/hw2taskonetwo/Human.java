@@ -8,29 +8,10 @@ public class Human {
 
 // task 3 version of constructor
     public Human(int yearOfBirth, String name, String town, String job) {
-        if (yearOfBirth >= 0) {
-            this.yearOfBirth = yearOfBirth;
-        } else {
-            this.yearOfBirth = Math.abs(yearOfBirth);
-        }
-
-        if (name == null) {
-            System.out.println("Информация не указана");
-        } else {
-            this.name = name;
-        }
-
-        if (town == null) {
-            System.out.println("Информация не указана");
-        } else {
-            this.town = town;
-        }
-
-        if (job == null) {
-            System.out.println("Информация не указана");
-        } else {
-            this.job = job;
-        }
+        this.setYearOfBirth(yearOfBirth);
+        this.setName(name);
+        this.setTown(town);
+        this.setJob(job);
     }
 
     public int getYearOfBirth() {
@@ -47,5 +28,39 @@ public class Human {
 
     public String getJob() {
         return job;
+    }
+
+    // hw3-task1
+
+    public void setYearOfBirth(int yearOfBirth) {
+        if (yearOfBirth < 0) {
+            this.yearOfBirth = 0;
+        } else {
+            this.yearOfBirth = yearOfBirth;
+        }
+    }
+
+    public void setName(String name) {
+        if (name == null) {
+            this.name = "Информация не указана";
+        } else {
+            this.name = name;
+        }
+    }
+
+    public void setTown(String town) {
+        if (town == null) {
+            this.town = "Информация не указана";
+        } else {
+            this.town = town;
+        }
+    }
+
+    public void setJob(String job) {
+        if (job == null) {
+            this.job = "Информация не указана";
+        } else {
+            this.job = job;
+        }
     }
 }
