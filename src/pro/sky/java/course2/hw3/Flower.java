@@ -61,4 +61,15 @@ public class Flower {
     public static boolean isNullOrEmpty(String value) {
         return value == null || value.isEmpty();
     }
+
+    @Override
+    public String toString() {
+        return "Flower{" +
+                "name='" + name + '\'' +
+                ", flowerColor='" + flowerColor + '\'' +
+                ", country='" + country + '\'' +
+                ", cost=" + cost +
+                ", lifeSpan=" + lifeSpan +
+                '}';
+    }
 }
