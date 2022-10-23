@@ -1,25 +1,33 @@
 package pro.sky.java.course2.hw4;
 
-public abstract class Transport {
+public class Transport {
     private final String brand;
     private final String model;
     private final int productionYear;
     private final String productionCountry;
     private String carcassColor;
-    private short maxSpeed;
+    private int maxSpeed;
 
     public Transport(String brand,
                      String model,
                      int productionYear,
                      String productionCountry,
                      String carcassColor,
-                     short maxSpeed)
+                     int maxSpeed)
     {
         this.brand = brand;
-        this.model = model;
+        if (model == null) {
+            this.model = "Not defined";
+        } else {
+            this.model = model;
+        }
         this.productionYear = productionYear;
         this.productionCountry = productionCountry;
-        this.carcassColor = carcassColor;
+        if (carcassColor == null) {
+            this.carcassColor = "Not defined";
+        } else {
+            this.carcassColor = carcassColor;
+        }
         this.maxSpeed = maxSpeed;
     }
 
@@ -45,7 +53,7 @@ public abstract class Transport {
         return carcassColor;
     }
 
-    public short getMaxSpeed() {
+    public int getMaxSpeed() {
         return maxSpeed;
     }
 
@@ -57,7 +65,7 @@ public abstract class Transport {
         }
     }
 
-    public void setMaxSpeed(short maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) {
         if (maxSpeed <= 0) {
             this.maxSpeed = -1;
         } else {

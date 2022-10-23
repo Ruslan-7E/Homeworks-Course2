@@ -12,7 +12,7 @@ public class Train extends Transport{
                  int productionYear,
                  String productionCountry,
                  String carcassColor,
-                 short maxSpeed,
+                 int maxSpeed,
                  double tripCost,
                  double tripTime,
                  String departureStation,
