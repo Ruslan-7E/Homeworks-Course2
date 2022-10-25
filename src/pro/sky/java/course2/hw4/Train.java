@@ -17,8 +17,9 @@ public class Train extends Transport{
                  double tripTime,
                  String departureStation,
                  String endPoint,
-                 int numOfWagons) {
-        super(brand, model, productionYear, productionCountry, carcassColor, maxSpeed);
+                 int numOfWagons,
+                 String fuelType) {
+        super(brand, model, productionYear, productionCountry, carcassColor, maxSpeed, fuelType);
         setTripCost(tripCost);
         setTripTime(tripTime);
         setDepartureStation(departureStation);
@@ -84,6 +85,26 @@ public class Train extends Transport{
         } else {
             this.numOfWagons = numOfWagons;
         }
+    }
+
+    @Override
+    protected void refill() {
+        System.out.println("Fuel type for Train: " + getBrand() + " - " + getFuelType());
+    }
+
+    public static void printTrainInfo(Train train) {
+        System.out.println(train.getBrand() + ", "
+                + train.getModel() + ", "
+                + train.getProductionYear() + ", "
+                + train.getProductionCountry() + ", "
+                + train.getCarcassColor() + ", "
+                + train.getMaxSpeed() + ", "
+                + train.getTripCost() + ", "
+                + train.getTripTime() + ", "
+                + train.getDepartureStation() + ", "
+                + train.getEndPoint() + ", "
+                + train.getNumOfWagons() + ", "
+                + train.getFuelType());
     }
 
     @Override

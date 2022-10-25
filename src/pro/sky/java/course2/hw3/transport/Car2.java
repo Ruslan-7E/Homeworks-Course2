@@ -295,8 +295,5 @@ public class Car2 {
                 System.out.println("Номер страховки некорректный!");
             }
         }
-
-
-
     }
 }

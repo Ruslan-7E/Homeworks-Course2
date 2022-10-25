@@ -1,5 +1,7 @@
 package pro.sky.java.course2.hw4;
 
+import java.time.LocalDate;
+
 public class TransportService {
     public static void main(String[] args) {
         Train lastochka = new Train("Lastochka",
@@ -12,7 +14,8 @@ public class TransportService {
                 0,
                 "Beloruskiy Station",
                 "Minsk-Passajirskiy",
-                11);
+                11,
+                "Diesel");
 
         Train leningrad = new Train("Leningrad",
                 "D-125",
@@ -24,54 +27,54 @@ public class TransportService {
                 0,
                 "Leningradskiy Station",
                 "Leningrad-Passajirskiy",
-                8);
+                8,
+                "Diesel");
 
         Bus marshrutka = new Bus("Gaz",
                 "Next",
                 2015,
                 "Russia",
                 null,
-                0);
+                0,
+                "Gasoline");
 
         Bus reisoviy = new Bus("Kamaz",
                 null,
                 2018,
                 "Russia",
                 "White",
-                85);
+                85,
+                "Diesel");
 
-        printTrainInfo(lastochka);
+        Car3 kalina = new Car3("Lada",
+                "Kalina",
+                2017,
+                "Russia",
+                "Red",
+                180,
+                1.6,
+                "Automatic",
+                "Hatchback",
+                null,
+                4,
+                false,
+                new Car3.Key(true, false),
+                new Car3.Insurance(LocalDate.now().plusDays(300), 15_000, null),
+                "Gasoline");
+
+        Train.printTrainInfo(lastochka);
         System.out.println();
-        printTrainInfo(leningrad);
+        Train.printTrainInfo(leningrad);
 
         System.out.println("-----------");
 
-        printBusInfo(marshrutka);
+        Bus.printBusInfo(marshrutka);
         System.out.println();
-        printBusInfo(reisoviy);
+        Bus.printBusInfo(reisoviy);
+
+        System.out.println("-----------");
+        Car3.printFullInfo(kalina);
     }
 
-    public static void printTrainInfo(Train train) {
-        System.out.println(train.getBrand() + ", "
-        + train.getModel() + ", "
-        + train.getProductionYear() + ", "
-        + train.getProductionCountry() + ", "
-        + train.getCarcassColor() + ", "
-        + train.getMaxSpeed() + ", "
-        + train.getTripCost() + ", "
-        + train.getTripTime() + ", "
-        + train.getDepartureStation() + ", "
-        + train.getEndPoint() + ", "
-        + train.getNumOfWagons());
-    }
-
-    public static void printBusInfo(Bus bus) {
-        System.out.println(bus.getBrand() + ", "
-        + bus.getModel() + ", "
-        + bus.getProductionYear() + ", "
-        + bus.getProductionCountry() + ", "
-        + bus.getCarcassColor() + ", "
-        + bus.getMaxSpeed());
-    }
 }
 
