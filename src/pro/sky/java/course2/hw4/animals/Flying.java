@@ -1,5 +1,7 @@
 package pro.sky.java.course2.hw4.animals;
 
+import java.util.Objects;
+
 public class Flying extends Bird{
 
     private String typeOfMoving;
@@ -34,6 +36,20 @@ public class Flying extends Bird{
     @Override
     public void go() {
         System.out.println(getName() + " goes by " + getTypeOfMoving() + " near the " + getHabitat());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Flying flying = (Flying) o;
+        return Objects.equals(typeOfMoving, flying.typeOfMoving);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeOfMoving);
     }
 
     @Override

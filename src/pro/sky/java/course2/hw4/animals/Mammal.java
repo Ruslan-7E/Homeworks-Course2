@@ -1,8 +1,10 @@
 package pro.sky.java.course2.hw4.animals;
 
+import java.util.Objects;
+
 public class Mammal extends Animal{
 
-    private Integer maxSpeed;
+    protected Integer maxSpeed;
 
     protected Mammal(String name, Integer age, String habitat, Integer maxSpeed) {
         super(name, age, habitat);
@@ -13,12 +15,15 @@ public class Mammal extends Animal{
         super(name, age, habitat);
     }
 
+
+
+
     public Integer getMaxSpeed() {
         return maxSpeed;
     }
 
     public void setMaxSpeed(Integer maxSpeed) {
-        if (maxSpeed == null) {
+        if (maxSpeed <= 0) {
             this.maxSpeed = 1;
         } else {
             this.maxSpeed = maxSpeed;
@@ -37,6 +42,20 @@ public class Mammal extends Animal{
 
     public void walk() {
         System.out.println(getName() + " is walking.");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Mammal mammal = (Mammal) o;
+        return Objects.equals(maxSpeed, mammal.maxSpeed);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), maxSpeed);
     }
 
     @Override

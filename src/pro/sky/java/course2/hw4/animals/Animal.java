@@ -1,9 +1,11 @@
 package pro.sky.java.course2.hw4.animals;
 
+import java.util.Objects;
+
 public abstract class Animal {
-    private final String name;
-    private final Integer age;
-    private String habitat;
+    protected final String name;
+    protected final Integer age;
+    protected String habitat;
 
     protected Animal(String name, Integer age, String habitat) {
         this.name = name;
@@ -37,6 +39,21 @@ public abstract class Animal {
 
     public void sleep() {
         System.out.println(getName() + "Sleeps");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return Objects.equals(name, animal.name)
+                && Objects.equals(age, animal.age)
+                && Objects.equals(habitat, animal.habitat);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, habitat);
     }
 
     @Override

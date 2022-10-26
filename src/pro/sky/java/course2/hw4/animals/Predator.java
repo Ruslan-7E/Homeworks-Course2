@@ -1,5 +1,7 @@
 package pro.sky.java.course2.hw4.animals;
 
+import java.util.Objects;
+
 public class Predator extends Mammal{
 
     private String typeOfFood;
@@ -33,6 +35,20 @@ public class Predator extends Mammal{
     @Override
     public void go() {
         System.out.println(getName() + " goes by legs near the " + getHabitat());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Predator predator = (Predator) o;
+        return Objects.equals(typeOfFood, predator.typeOfFood);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeOfFood);
     }
 
     @Override
