@@ -1,16 +1,15 @@
 package pro.sky.java.course2.hw4;
 
 public abstract class Transport {
-    private final String brand;
-    private final String model;
-    private final int productionYear;
-    private final String productionCountry;
-    private String carcassColor;
-    private int maxSpeed;
-    private final String fuelType;
+    protected final String brand;
+    protected final String model;
+    protected final int productionYear;
+    protected final String productionCountry;
+    protected String carcassColor;
+    protected int maxSpeed;
+    protected final String fuelType;
 
     protected abstract void refill();
-
     public Transport(String brand,
                      String model,
                      int productionYear,

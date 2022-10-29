@@ -74,6 +74,7 @@ public class TransportService {
 
         System.out.println("-----------");
         Car3.printFullInfo(kalina);
+
     }
 
 }

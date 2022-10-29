@@ -1,9 +1,9 @@
 package pro.sky.java.course2.hw5;
 
 public abstract class Auto {
-    private String brand;
-    private String model;
-    private double engineVolume;
+    protected String brand;
+    protected String model;
+    protected double engineVolume;
 
     public Auto(String brand, String model, double engineVolume) {
         if (brand == null || brand.isBlank()) {
