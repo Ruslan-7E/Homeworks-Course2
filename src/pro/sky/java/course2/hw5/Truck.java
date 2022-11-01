@@ -2,6 +2,29 @@ package pro.sky.java.course2.hw5;
 
 public class Truck extends Auto implements Competing, Racing {
 
+    public enum LoadCapacity {
+        N1("up to 3.5 tons"),
+        N2("from 3.5 to 12 tons"),
+        N3("over 12 tons");
+
+        private final String capacityDescription;
+
+        LoadCapacity(String capacityDescription) {
+            if (capacityDescription == null || capacityDescription.isBlank()) {
+                this.capacityDescription = "No Data";
+            } else {
+                this.capacityDescription = capacityDescription;
+            }
+        }
+
+        public String getCapacityDescription() {
+            return capacityDescription;
+        }
+    }
+
+    // N1 (up to 3.5 tons),
+    // N2 (from 3.5 to 12 tons),
+    // N3 (over 12 tons)
 
     public Truck(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
@@ -15,6 +38,13 @@ public class Truck extends Auto implements Competing, Racing {
     @Override
     public void stopMove() {
         System.out.println(getBrand() + " stopped moving.");
+    }
+
+    @Override
+    public void getAutoType() {
+        System.out.println(getBrand() + ", "
+                + getModel() + ", "
+                + LoadCapacity.N2.name());
     }
 
     @Override

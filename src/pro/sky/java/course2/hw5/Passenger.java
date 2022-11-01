@@ -1,7 +1,38 @@
 package pro.sky.java.course2.hw5;
 
+import java.util.Arrays;
+
 public class Passenger extends Auto implements Competing, Racing {
 
+    public enum PassengerCarcass {
+        SEDAN("This is sedan."),
+        HATCHBACK(""),
+        COUPE("This is a coupe."),
+        UNIVERSAL(null),
+        SUV("This is a SUV."),
+        CROSSOVER(""),
+        PICKUP(null),
+        VAN("This is a van."),
+        MINIVAN("");
+
+        private String passengerType;
+
+        PassengerCarcass(String passengerType) {
+            if (passengerType == null || passengerType.isBlank()) {
+                this.passengerType = "No Data.";
+            } else {
+                this.passengerType = passengerType;
+            }
+        }
+
+        public String getPassengerType() {
+            return passengerType;
+        }
+
+        public void setPassengerType(String passengerType) {
+            this.passengerType = passengerType;
+        }
+    }
 
     public Passenger(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
@@ -15,6 +46,13 @@ public class Passenger extends Auto implements Competing, Racing {
     @Override
     public void stopMove() {
         System.out.println(getBrand() + " stopped moving.");
+    }
+
+    @Override
+    public void getAutoType() {
+        System.out.println(getBrand() + ", "
+                + getModel() + ", "
+                + Arrays.toString(new PassengerCarcass[]{PassengerCarcass.COUPE}));
     }
 
     @Override

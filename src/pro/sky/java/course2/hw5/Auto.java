@@ -53,6 +53,8 @@ public abstract class Auto {
 
     public abstract void stopMove();
 
+    public abstract void getAutoType();
+
     @Override
     public String toString() {
         return getBrand() + ", " + getModel() + ", " + getEngineVolume();

@@ -53,5 +53,11 @@ public class Main {
         george.getDriverInfo();
         phil.getDriverInfo();
 
+        System.out.println("------------");
+
+        porsche.getAutoType();
+        electrobus.getAutoType();
+        kamaz.getAutoType();
+
     }
 }
