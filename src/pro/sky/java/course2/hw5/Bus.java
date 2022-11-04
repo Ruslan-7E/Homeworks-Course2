@@ -52,6 +52,12 @@ public class Bus extends Auto implements Competing, Racing {
     }
 
     @Override
+    public boolean autoService() {
+        System.out.println("A bus " + getBrand() + ", " + getModel() + " not required for diagnosis.");
+        return true;
+    }
+
+    @Override
     public void refill() {
         System.out.println(getBrand() + " refills by diesel.");
     }

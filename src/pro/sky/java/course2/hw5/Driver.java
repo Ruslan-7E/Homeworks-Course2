@@ -14,11 +14,7 @@ public abstract class Driver<T extends Auto & Racing> {
             this.name = name;
         }
 
-        if (driveCategory == null) {
-            this.driveCategory = 't';
-        } else {
-            this.driveCategory = driveCategory;
-        }
+        setDriveCategory(driveCategory);
 
         if (yearsOfExperience == null) {
             this.yearsOfExperience = -1;
@@ -59,7 +55,11 @@ public abstract class Driver<T extends Auto & Racing> {
     }
 
     public void setDriveCategory(Character driveCategory) {
-        this.driveCategory = driveCategory;
+        if (driveCategory == null) {
+            throw new IllegalArgumentException("You'd need to give a type of drive category!");
+        } else {
+            this.driveCategory = driveCategory;
+        }
     }
 
     public void setYearsOfExperience(Integer yearsOfExperience) {

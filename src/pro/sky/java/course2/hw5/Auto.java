@@ -55,6 +55,8 @@ public abstract class Auto {
 
     public abstract void getAutoType();
 
+    public abstract boolean autoService();
+
     @Override
     public String toString() {
         return getBrand() + ", " + getModel() + ", " + getEngineVolume();

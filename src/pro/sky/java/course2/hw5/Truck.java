@@ -48,6 +48,11 @@ public class Truck extends Auto implements Competing, Racing {
     }
 
     @Override
+    public boolean autoService() {
+        return Math.random() > 0.75;
+    }
+
+    @Override
     public void refill() {
         System.out.println(getBrand() + " refills by the diesel");
     }

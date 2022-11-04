@@ -56,6 +56,11 @@ public class Passenger extends Auto implements Competing, Racing {
     }
 
     @Override
+    public boolean autoService() {
+        return Math.random() > 0.7;
+    }
+
+    @Override
     public void refill() {
         System.out.println(getBrand() + " refills by gasoline.");
     }

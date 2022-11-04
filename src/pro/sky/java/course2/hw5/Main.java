@@ -1,5 +1,7 @@
 package pro.sky.java.course2.hw5;
 
+import pro.sky.java.course2.hw4.Transport;
+
 public class Main {
     public static void main(String[] args) {
         Passenger porsche = new Passenger("Porsche", "Carrera", 4.0);
@@ -14,6 +16,8 @@ public class Main {
         DriverB michael = new DriverB("Michael", 'B', 3, tesla);
         DriverC george = new DriverC("George", 'C', 5, kamaz);
         DriverD phil = new DriverD("Phil", 'D', 8, ikarus);
+
+
 
         System.out.println("************");
 
@@ -59,5 +63,26 @@ public class Main {
         electrobus.getAutoType();
         kamaz.getAutoType();
 
+        service(porsche, ikarus, tesla, daf, kamaz);
+
+    }
+
+    private static void service(Auto... autos) {
+        for (Auto auto : autos) {
+            serviceAuto(auto);
+        }
+    }
+
+    private static void serviceAuto(Auto auto) {
+        try {
+            if (!auto.autoService()) {
+                throw new RuntimeException("The auto "
+                        + auto.getBrand()
+                        + " " + auto.getModel()
+                        + " hasn't got diagnosis!");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
