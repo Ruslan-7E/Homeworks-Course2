@@ -2,69 +2,55 @@ package pro.sky.java.course2.hw5;
 
 import pro.sky.java.course2.hw4.Transport;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+        Mechanic<Passenger> john = new Mechanic<>("John", "Snow", "Dragons");
+        Mechanic<Auto> peter = new Mechanic<>("Peter", "Kavalainen", "Masters");
+
+        Sponsor lukoil = new Sponsor("Lukoil", 3_000_000);
+        Sponsor michelin = new Sponsor("Michelin", 5_000_000);
+
         Passenger porsche = new Passenger("Porsche", "Carrera", 4.0);
         Passenger tesla = new Passenger("Tesla", "Plaid", -1);
+
+        tesla.addDriver(new DriverB("Michael", 'B', 3, tesla));
+        tesla.addMechanic(john);
+        tesla.addSponsor(lukoil, michelin);
 
         Truck daf = new Truck("Daf", "Super", 10.5);
         Truck kamaz = new Truck("Kamaz", "Master", 12.0);
 
+        kamaz.addDriver(new DriverC("George", 'C', 5, kamaz));
+        kamaz.addMechanic(peter);
+        kamaz.addSponsor(michelin);
+
         Bus ikarus = new Bus("Ikarus", "V-170", 7.5);
         Bus electrobus = new Bus("Gaz", "City", -1);
 
-        DriverB michael = new DriverB("Michael", 'B', 3, tesla);
-        DriverC george = new DriverC("George", 'C', 5, kamaz);
-        DriverD phil = new DriverD("Phil", 'D', 8, ikarus);
+        ikarus.addDriver(new DriverD("Phil", 'D', 8, ikarus));
+        ikarus.addMechanic(peter);
+        ikarus.addSponsor(lukoil);
 
+//        DriverB michael = new DriverB("Michael", 'B', 3, tesla);
+//        DriverC george = new DriverC("George", 'C', 5, kamaz);
+//        DriverD phil = new DriverD("Phil", 'D', 8, ikarus);
 
+        List<Auto> autos = List.of(tesla, kamaz, ikarus);
 
-        System.out.println("************");
+        for (Auto auto : autos) {
+            printInfo(auto);
+        }
 
-        porsche.pitStop();
-        porsche.maxSpeed();
-        porsche.startMove();
-        porsche.stopMove();
-        porsche.bestTime();
+    }
 
-        System.out.println("************");
-
-        daf.pitStop();
-        daf.maxSpeed();
-        daf.startMove();
-        daf.stopMove();
-        daf.bestTime();
-        System.out.println(daf);
-
-        System.out.println("************");
-
-        electrobus.pitStop();
-        electrobus.maxSpeed();
-        electrobus.startMove();
-        electrobus.stopMove();
-        electrobus.bestTime();
-        System.out.println(electrobus);
-
-        System.out.println("------------");
-
-        System.out.println(michael);
-        System.out.println(george);
-        System.out.println(phil);
-
-        System.out.println("------------");
-
-        michael.getDriverInfo();
-        george.getDriverInfo();
-        phil.getDriverInfo();
-
-        System.out.println("------------");
-
-        porsche.getAutoType();
-        electrobus.getAutoType();
-        kamaz.getAutoType();
-
-        service(porsche, ikarus, tesla, daf, kamaz);
-
+    private static void printInfo(Auto auto) {
+        System.out.println("Info about an auto: " + auto.getBrand() + " " + auto.getModel());
+        System.out.println("Drivers: " + auto.getDrivers());
+        System.out.println("Sponsors: " + auto.getSponsors());
+        System.out.println("Mechanics: " + auto.getMechanics());
+        System.out.println();
     }
 
     private static void service(Auto... autos) {

@@ -1,11 +1,20 @@
 package pro.sky.java.course2.hw5;
 
-public abstract class Auto {
-    protected String brand;
-    protected String model;
-    protected double engineVolume;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    public Auto(String brand, String model, double engineVolume) {
+public abstract class Auto {
+    private String brand;
+    private String model;
+    private double engineVolume;
+    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
+
+    public Auto(String brand,
+                String model,
+                double engineVolume) {
         if (brand == null || brand.isBlank()) {
             this.brand = "Default";
         } else {
@@ -25,6 +34,18 @@ public abstract class Auto {
         }
     }
 
+    public void addDriver(Driver<?>... drivers) {
+        this.drivers.addAll(Arrays.asList(drivers));
+    }
+
+    public void addMechanic(Mechanic<?>... mechanics) {
+        this.mechanics.addAll(Arrays.asList(mechanics));
+    }
+
+    public void addSponsor(Sponsor... sponsors) {
+        this.sponsors.addAll(Arrays.asList(sponsors));
+    }
+
     public String getBrand() {
         return brand;
     }
@@ -35,6 +56,18 @@ public abstract class Auto {
 
     public double getEngineVolume() {
         return engineVolume;
+    }
+
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
     }
 
     public void setBrand(String brand) {
@@ -61,4 +94,6 @@ public abstract class Auto {
     public String toString() {
         return getBrand() + ", " + getModel() + ", " + getEngineVolume();
     }
+
+    public abstract void repair();
 }

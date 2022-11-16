@@ -71,6 +71,11 @@ public class Passenger extends Auto implements Competing, Racing {
     }
 
     @Override
+    public void repair() {
+        System.out.println("Car " + getBrand() + " " + getModel() + " is repaired!");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println(getBrand() + ", " + getModel() + " has got a pit-stop.");
     }
