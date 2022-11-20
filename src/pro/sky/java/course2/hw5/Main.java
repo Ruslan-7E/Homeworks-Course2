@@ -39,6 +39,13 @@ public class Main {
 
         List<Auto> autos = List.of(tesla, kamaz, ikarus);
 
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addPassenger(porsche);
+        serviceStation.addTruck(daf);
+        serviceStation.techService();
+        serviceStation.techService();
+        System.out.println();
+
         for (Auto auto : autos) {
             printInfo(auto);
         }
